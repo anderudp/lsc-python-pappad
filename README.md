@@ -3,6 +3,7 @@ Ez a repository az általam oktatott Pythonos csoportok kisegítésére jött l�
 
 ## Használati útmutató
 **TANANYAG mappa:** Jegyzetfüzet formátumú leírások és kód. Tömény és részletes. Tartalmaz mindent, amit az iskola által kiírt tananyag elvár.
+
 **ÓRAI ANYAGOK mappa:** Az órákon elkészített kódjaink ide kerülnek fel. Nem tartalmaz magyarázatokat, csak a feladatok megoldásait.
 
 Sok sikert, és jó tanulást! 😁
