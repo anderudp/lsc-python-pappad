@@ -64,3 +64,25 @@ else:
         print("Az y-tengely alsó oldala")  # x nulla, y negatív
     else:
         print("Origó")  # x nulla, y nulla
+
+# Így a legrövidebb a kód, viszont nehezen áltátható. Jobban megéri elegánsan, de terjengősebben elkészíteni.
+# Így nem is kellenek kommentek, a kód dokumentlja önmagát.
+
+if num_x > 0 and num_y > 0:
+    print("I.kvadráns")
+elif num_x < 0 and num_y > 0:
+    print("II.kvadráns")
+elif num_x < 0 and num_y < 0:
+    print("III.kvadráns")
+elif num_x > 0 and num_y < 0:
+    print("IV.kvadráns")
+elif num_x > 0 and num_y == 0:
+    print("Az x-tengely bal oldala")
+elif num_x < 0 and num_y == 0:
+    print("Az x-tengely jobb oldala")
+elif num_x == 0 and num_y > 0:
+    print("Az y-tengely felső oldala")
+elif num_x == 0 and num_y < 0:
+    print("Az y-tengely alsó oldala")
+elif num_x == 0 and num_y == 0:  # Ha minden releváns esetet lefedünk, nem szükséges else állítás
+    print("Origó")
