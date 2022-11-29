@@ -53,14 +53,12 @@ myList = []
 a = float(input("Első oldal: "))
 b = float(input("Második oldal: "))
 c = float(input("Harmadik oldal: "))
-# Check if it can be drawn
 if a + b > c and a + c > b and b + c > a:  # Háromszög-egyenlőtlenség tétele
     print("A háromszög létezik.")
-# Check the side length
 if a == b == c:
     print("Szabályos/Egyenlő oldalú háromszög.")  # Regular/Equilateral triangle
 elif a == b or b == c or a == c:
-    print("Egyenlő oldalú háromszög.")  # Isosceles triangle
+    print("Egyenlő szárú háromszög.")  # Isosceles triangle
 elif a**2 + b**2 == c**2 or b**2 + c**2 == a**2 or a**2 + c**2 == b**2:  # Pitagorasz-tétel
     print("Derékszögű háromszög.")  # Right triangle
 else:
