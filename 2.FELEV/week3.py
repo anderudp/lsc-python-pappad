@@ -66,4 +66,3 @@ def random_distribution():
 
     plt.pie(counts, labels=names, autopct='%.0f%%')
     plt.show()
-
