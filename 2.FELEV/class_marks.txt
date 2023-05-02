@@ -1,0 +1,10 @@
+Aladár,3
+Elemér,4
+Zita,5
+Dávid,4
+Janka,4
+Marci,3
+Panna,4
+Zsolt,2
+Zoltán,3
+Ildi,4
