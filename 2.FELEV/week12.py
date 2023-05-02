@@ -36,4 +36,29 @@ def class_tuples():
 
 # 6.feladat: Kiírás fájlba
 def write_into_file(file_name, text):
-    with open()
+    with open(file_name, "w", encoding="utf8") as f:
+        f.write(text)
+
+# 7.feladat: Hozzáírás fájlhoz
+def append_to_file(file_name, text):
+    with open(file_name, "a", encoding="utf8") as f:
+        f.write(text)
+
+# 8.feladat: Listák kiírása fájlba
+def list_to_file(file_name, list_to_write):
+    with open(file_name, "w", encoding="utf8") as f:
+        f.writelines(list_to_write)
+
+# 9.feladat: Navigálás fájlban
+def append_to_beginning():
+    with open("class_marks.txt", "r+", encoding="utf8") as f:
+        f.seek(0)
+        f.write("Adrienn,5\n")
+
+#10.feladat: Fájl törlése
+import os
+def delete_file(file_name):
+    os.remove(file_name)
+
+    
+delete_file("kiscica.txt")

@@ -1,5 +1,4 @@
-Aladár,3
-Elemér,4
+Adrienn, 5
 Zita,5
 Dávid,4
 Janka,4
