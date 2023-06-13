@@ -190,7 +190,7 @@ def draw_window(red, yellow, red_bullets, yellow_bullets, red_health, yellow_hea
 
     for bullet in red_bullets:
         pygame.draw.rect(WINDOW, RED, bullet)
-    for bullet in red_bullets:
+    for bullet in yellow_bullets:
         pygame.draw.rect(WINDOW, YELLOW, bullet)
 
     pygame.display.update()
@@ -203,3 +203,65 @@ def draw_winner(text):
 
 # <---------- 17.óra ----------> #
 
+def main():
+    red = pygame.Rect(700, 300, SPACESHIP_WIDTH, SPACESHIP_HEIGHT)
+    yellow = pygame.Rect(100, 300, SPACESHIP_WIDTH, SPACESHIP_HEIGHT)
+
+    meteor_1_coords = generate_meteor_coords()
+    meteor_2_coords = generate_meteor_coords()
+    meteor_3_coords = generate_meteor_coords()
+    meteor_1 = pygame.Rect(meteor_1_coords[0], meteor_1_coords[1], METEOR_WIDTH, METEOR_HEIGHT)
+    meteor_2 = pygame.Rect(meteor_2_coords[0], meteor_2_coords[1], METEOR_WIDTH, METEOR_HEIGHT)
+    meteor_3 = pygame.Rect(meteor_3_coords[0], meteor_3_coords[1], METEOR_WIDTH, METEOR_HEIGHT)
+
+    red_bullets = []
+    yellow_bullets = []
+
+    red_health = 10
+    yellow_health = 10
+
+    clock = pygame.time.Clock()
+    run = True
+    while run:
+        clock.tick(FPS)
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                run = False
+                pygame.quit()
+                exit()
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_RCTRL and len(red_bullets) < MAX_BULLETS:
+                    bullet = pygame.Rect(red.x, red.y + red.height // 2, 10, 5)
+                    red_bullets.append(bullet)
+                    BULLET_FIRE_SOUND.play()
+                if event.key == pygame.K_SPACE and len(yellow_bullets) < MAX_BULLETS:
+                    bullet = pygame.Rect(yellow.x + yellow.width, yellow.y + yellow.height // 2, 10, 5)
+                    yellow_bullets.append(bullet)
+                    BULLET_FIRE_SOUND.play()
+            if event.type == RED_HIT:
+                red_health -= 1
+                BULLET_HIT_SOUND.play()
+            if event.type == YELLOW_HIT:
+                yellow_health -= 1
+                BULLET_HIT_SOUND.play()
+
+        winner_text = ""
+        if red_health <= 0:
+            winner_text = "Yellow Wins!"
+        if yellow_health <= 0:
+            winner_text = "Red Wins!"
+        if winner_text != "":
+            draw_winner(winner_text)
+            break
+
+        keys_pressed = pygame.key.get_pressed()
+        yellow_control(keys_pressed, yellow)
+        red_control(keys_pressed, red)
+        meteor_control(meteor_1, meteor_2, meteor_3)
+        bullet_control(yellow_bullets, red_bullets, yellow, red, meteor_1, meteor_2, meteor_3)
+        draw_window(red, yellow, red_bullets, yellow_bullets,
+                    red_health, yellow_health, meteor_1, meteor_2, meteor_3)
+
+
+if __name__ == "__main__":
+    main()
