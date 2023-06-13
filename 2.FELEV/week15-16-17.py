@@ -1,3 +1,5 @@
+# <---------- 15.óra ----------> #
+
 import pygame
 import math
 import random
@@ -69,6 +71,8 @@ SPACE = pygame.transform.scale(pygame.image.load("space.png"), (WIDTH, HEIGHT))
 
 YELLOW_HIT = pygame.USEREVENT + 1
 RED_HIT = pygame.USEREVENT + 2
+
+# <---------- 16.óra ----------> #
 
 def yellow_control(keys_pressed, yellow):
     if keys_pressed[pygame.K_a] and yellow.x - VEL > -15:
@@ -196,3 +200,6 @@ def draw_winner(text):
     WINDOW.blit(draw_text, (WIDTH / 2 - draw_text.get_width() / 2, HEIGHT / 2 - draw_text.get_height() / 2))
     pygame.display.update()
     pygame.time.delay(5000)
+
+# <---------- 17.óra ----------> #
+
